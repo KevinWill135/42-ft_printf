@@ -6,64 +6,40 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/21 22:08:11 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:10:50 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include <libftprintf.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-	
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb < 0)
-	{
-		nb *= -1;
-		ft_putchar('-');
-	}
-	if (nb > 9)
-		ft_putnbr(nb / 10);
-	nb = (nb % 10) + '0';
-	write(1, &nb, 1);
-}
-
-void	ft_cattype(va_list arg, char c)
+static void	ft_cattype(va_list arg, char c)
 {
 	if (c == 'c')
 		ft_putchar(va_arg(arg, int));
 	else if (c == 's')
 		ft_putstr(va_arg(arg, char *));
-	else if (c == 'p')
-		va_arg(arg, void *);
 	else if (c == 'd')
-		ft_putnbr(va_arg(arg, int));
+		ft_putnbr_base(va_arg(arg, int), DEC);
 	else if (c == 'i')
 		ft_putnbr(va_arg(arg, int));
-	else if(c == 'u')
-		va_arg(arg, unsigned int);
+	else if (c == 'u')
+		ft_putnbr_u(va_arg(arg, unsigned int));
 	else if (c == 'x')
-		va_arg(arg, char *);
+		ft_putnbr_base(va_arg(arg, int), HEX);
 	else if (c == 'X')
-		va_arg(arg, char *);
+		ft_putnbr_base(va_arg(arg, int), UHEX);
+	else if (c == 'p')
+	{
+		ft_putstr("0x");
+		ft_putnbr_base((unsigned long long)va_arg(arg, void *), HEX);
+	}
+	else if (c == '%')
+		ft_putchar('%');
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
+	int		i;
 	va_list	arg;
 
 	va_start(arg, str);
@@ -75,7 +51,7 @@ int	ft_printf(const char *str, ...)
 			ft_cattype(arg, str[++i]);
 			i++;
 		}
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
 	va_end(arg);
@@ -84,8 +60,14 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	char *s = "SOS";
-	int c = 435;
-	ft_printf("thats that shit %s ba next arg for test is %d LoL\n", s, c);
-	printf("thats that shit %x ba\n", c);
+	//char *s = "SOS";
+	int c = -12123;
+	//char *ptr = "ABC\n";
+	//char c = 'B';
+	//ft_printf("thats that shit %u ba next arg for test is %p LoL\n", c, s);
+	//printf("thats that shit %u ba\n", c);
+
+	//unsigned int y = c;
+	printf("Original:    %%\n");
+	ft_printf("ft_Original: %%\n", c);
 }
