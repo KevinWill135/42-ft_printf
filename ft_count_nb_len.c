@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_count_nb_len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 19:41:08 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/24 19:39:28 by kde-paul         ###   ########.fr       */
+/*   Created: 2025/10/24 19:15:34 by kde-paul          #+#    #+#             */
+/*   Updated: 2025/10/24 19:41:33 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int	ft_putnbr(int nbr)
+int	ft_count_nb_len(int nb)
 {
-	long	nb;
-	int		count;
+	size_t	tmp;
+	int	count;
 
-	nb = nbr;
+	tmp = nb;
 	count = 0;
-	if (nb < 0)
+	if (tmp < 0)
 	{
-		nb *= -1;
-		ft_putchar('-');
+		tmp *= -1;
 		count++;
 	}
-	if (nb > 9)
-		ft_putnbr(nb / 10);
-	ft_putchar((nb % 10) + '0');
-	count = ft_count_nb_len(nb);
+	while (tmp > 9)
+	{
+		count++;
+		tmp /= 10;
+	}
+	count++;
 	return (count);
 }

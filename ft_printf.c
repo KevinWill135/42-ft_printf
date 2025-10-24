@@ -6,68 +6,58 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/22 21:10:50 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/24 22:18:17 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include <ft_printf.h>
 
-static void	ft_cattype(va_list arg, char c)
+static int	ft_cattype(va_list arg, char c)
 {
+	int	count;
+
+	count = 0;
 	if (c == 'c')
-		ft_putchar(va_arg(arg, int));
+		count += ft_putchar(va_arg(arg, int));
 	else if (c == 's')
-		ft_putstr(va_arg(arg, char *));
+		count += ft_putstr(va_arg(arg, char *));
 	else if (c == 'd')
-		ft_putnbr_base(va_arg(arg, int), DEC);
+		count += ft_putnbr(va_arg(arg, int));
 	else if (c == 'i')
-		ft_putnbr(va_arg(arg, int));
+		count += ft_putnbr_base(va_arg(arg, int), DEC);
 	else if (c == 'u')
-		ft_putnbr_u(va_arg(arg, unsigned int));
+		count += ft_putnbr_u(va_arg(arg, unsigned int));
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(arg, int), HEX);
+		count += ft_putnbr_base(va_arg(arg, unsigned int), HEX);
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(arg, int), UHEX);
+		count += ft_putnbr_base(va_arg(arg, unsigned int), UHEX);
 	else if (c == 'p')
 	{
-		ft_putstr("0x");
-		ft_putnbr_base((unsigned long long)va_arg(arg, void *), HEX);
+		count += ft_putstr("0x");
+		count += ft_putnbr_base((unsigned long long)va_arg(arg, void *), HEX);
 	}
 	else if (c == '%')
-		ft_putchar('%');
+		count += ft_putchar('%');
+	return (count);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	int		i;
+	int		count;
 	va_list	arg;
 
 	va_start(arg, str);
 	i = 0;
+	count = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
-			ft_cattype(arg, str[++i]);
-			i++;
-		}
-		ft_putchar(str[i]);
+			count += ft_cattype(arg, str[++i]);
+		else
+			count += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(arg);
-	return (0);
-}
-
-int main(void)
-{
-	//char *s = "SOS";
-	int c = -12123;
-	//char *ptr = "ABC\n";
-	//char c = 'B';
-	//ft_printf("thats that shit %u ba next arg for test is %p LoL\n", c, s);
-	//printf("thats that shit %u ba\n", c);
-
-	//unsigned int y = c;
-	printf("Original:    %%\n");
-	ft_printf("ft_Original: %%\n", c);
+	return (count);
 }

@@ -6,11 +6,11 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:40:12 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/22 21:08:01 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:58:47 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include <ft_printf.h>
 
 int	ft_strlen(char *str)
 {

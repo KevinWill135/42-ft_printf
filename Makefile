@@ -1,4 +1,16 @@
-SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c ft_strlen.c ft_putnbr_u.c
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/22 21:20:53 by kde-paul          #+#    #+#              #
+#    Updated: 2025/10/24 20:10:41 by kde-paul         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c ft_strlen.c ft_putnbr_u.c ft_count_nb_len.c
 
 OBJS = $(SRC:.c=.o)
 
