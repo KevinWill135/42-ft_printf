@@ -6,7 +6,7 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:34:22 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/24 19:33:25 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:09:37 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putnbr_u(unsigned int nbr)
 {
 	unsigned long	nb;
-	unsigned int	count;
+	int	count;
 
 	nb = nbr;
 	count = ft_count_nb_len(nbr);

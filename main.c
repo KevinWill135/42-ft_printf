@@ -1,17 +1,23 @@
 #include <ft_printf.h>
 
 int main(void)
-{
-	int	tst = 15;
-	int *ptr = &tst;
+{ 
+/* 	long	tst = ULONG_MAX;
+	long	tstM = -ULONG_MAX;
+	long *ptr1 = &tst;
+	long *ptr2 = &tstM;
+ */
+	//ft_printf("testing category p: \n");
 
-	ft_printf("testing category p: \n");
+	int origin = printf(" %u ", -1);
+	int copy = ft_printf(" %u ", -1);
 
-	int origin = printf("ptr_pf: %p\n", ptr);
-	int copy = ft_printf("ptr_ft: %p\n", ptr);
+	//int origin = printf(" %d ", -1);//printf(" %p %p ", ptr1, ptr2);
+	//int copy = ft_printf(" %d ", -1);//ft_printf(" %p %p ", ptr1, ptr2);
 
-	printf("origin: %d\ncopy:   %d\n", origin, copy);
-
+	//ft_printf("\nori: %d\ncpy: %d\n", origin, copy);
+	printf("ori: %d cpy: %d ", origin, copy);
+	//ft_printf(" %d ", -1);
 	//char *s = "SOS";
 	//int c = -12123;
 	/* char *ptr = "ABC\n";
@@ -83,4 +89,14 @@ int main(void)
 	TEST(7, print(" %s %s ", " - ", ""));
 	TEST(8, print(" %s %s %s %s %s", " - ", "", "4", "", s2));
 	TEST(9, print(" %s %s %s %s %s ", " - ", "", "4", "", "2 "));
+
+	print(" %p ", -1));
+	TEST(2, print(" %p ", 1));
+	TEST(3, print(" %p ", 15));
+	TEST(4, print(" %p ", 16));
+	TEST(5, print(" %p ", 17));
+	TEST(6, print(" %p %p ", LONG_MIN, LONG_MAX));
+	TEST(7, print(" %p %p ", INT_MIN, INT_MAX));
+	TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
+	TEST(9, print(" %p %p ", 0, 0));
 */
