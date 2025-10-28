@@ -9,14 +9,15 @@ int main(void)
  */
 	//ft_printf("testing category p: \n");
 
-	int origin = printf(" %u ", -1);
+	/* int origin = printf(" %u ", -1);
 	int copy = ft_printf(" %u ", -1);
-
+ */
 	//int origin = printf(" %d ", -1);//printf(" %p %p ", ptr1, ptr2);
 	//int copy = ft_printf(" %d ", -1);//ft_printf(" %p %p ", ptr1, ptr2);
 
 	//ft_printf("\nori: %d\ncpy: %d\n", origin, copy);
-	printf("ori: %d cpy: %d ", origin, copy);
+	printf("The NULL macro represents the %p address\n", (void *)-1);
+	ft_printf("The NULL macro represents the %p address\n", (void *)-1);
 	//ft_printf(" %d ", -1);
 	//char *s = "SOS";
 	//int c = -12123;

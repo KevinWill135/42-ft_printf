@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putptr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 19:13:11 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/28 19:32:25 by kde-paul         ###   ########.fr       */
+/*   Created: 2025/10/28 19:32:46 by kde-paul          #+#    #+#             */
+/*   Updated: 2025/10/28 19:56:42 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void	ft_changebase(ssize_t nb, char *base, unsigned int baselen, int *count)
+static void	ft_putbase(unsigned long long ptr, char *base, int *count)
 {
-	if (nb >= baselen)
-		ft_changebase(nb / baselen, base, baselen, count);
-	nb = nb % baselen;
-	ft_putchar(base[nb]);
+	unsigned long long	baselen;
+
+	baselen = ft_strlen(base);
+	if (ptr >= baselen)
+		ft_putbase(ptr / baselen, base, count);
+	ptr = ptr % baselen;
+	ft_putchar(base[ptr]);
 	(*count)++;
 }
 
-int	ft_putnbr_base(ssize_t nbr, char *base)
+int	ft_putptr_base(unsigned long long ptr)
 {
 	int	count;
 
 	count = 0;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		ft_putchar('-');
-		count++;
-	}
-	ft_changebase(nbr, base, ft_strlen(base), &count);
+	ft_putbase(ptr, HEX, &count);
 	return (count);
 }

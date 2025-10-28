@@ -6,13 +6,13 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:39:18 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/24 22:10:34 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/28 21:43:50 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int	ft_putstr(char *str)
+size_t	ft_putstr(char *str)
 {
 	size_t	i;
 

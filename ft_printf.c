@@ -6,11 +6,23 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/27 21:23:49 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:57:05 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
+
+static int	ft_catptr(unsigned long long ptr)
+{
+	int	count;
+
+	count = 0;
+	if (!ptr)
+		return (count += ft_putstr("(nil)"));
+	count += ft_putstr("0x");
+	count += ft_putptr_base(ptr);
+	return (count);
+}
 
 static int	ft_cattype(va_list arg, char c)
 {
@@ -32,10 +44,7 @@ static int	ft_cattype(va_list arg, char c)
 	else if (c == 'X')
 		count += ft_putnbr_base(va_arg(arg, unsigned int), UHEX);
 	else if (c == 'p')
-	{
-		count += ft_putstr("0x");
-		count += ft_putnbr_base((unsigned long long)va_arg(arg, void *), HEX);
-	}
+		count += ft_catptr((unsigned long long)va_arg(arg, void *));
 	else if (c == '%')
 		count += ft_putchar('%');
 	return (count);

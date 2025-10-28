@@ -6,15 +6,15 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:40:12 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/22 21:58:47 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:59:10 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

@@ -6,7 +6,7 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:02:49 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/27 21:23:37 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:59:00 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	ft_putchar(char c);
 int	ft_putnbr_base(ssize_t nbr, char *base);
 int	ft_putnbr(int nbr);
 int	ft_putnbr_u(unsigned int nbr);
-int	ft_putstr(char *str);
-int	ft_strlen(char *str);
+size_t	ft_putstr(char *str);
+size_t	ft_strlen(char *str);
 int	ft_count_nb_len(size_t nb);
+int	ft_putptr_base(unsigned long long ptr);
 
 #endif
