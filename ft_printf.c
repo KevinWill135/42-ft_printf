@@ -6,7 +6,7 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/10/28 19:57:05 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/11/09 18:51:32 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,4 @@ int	ft_printf(const char *str, ...)
 	va_end(arg);
 	return (count);
 }
+// I need to put a -1 to be returned in my printf if something goes be wrong!!!
