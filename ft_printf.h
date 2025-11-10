@@ -6,7 +6,7 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:02:49 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/11/09 14:47:47 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:12:27 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@
 # include <limits.h>
 
 int		ft_printf(const char *str, ...);
-int		ft_putchar(char c);
+int		ft_putchar(int c);
 int		ft_putnbr_base(ssize_t nbr, char *base);
 int		ft_putnbr(int nbr);
-int		ft_putnbr_u(unsigned int nbr);
 size_t	ft_putstr(char *str);
 size_t	ft_strlen(char *str);
 int		ft_count_nb_len(size_t nb);

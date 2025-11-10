@@ -1,4 +1,4 @@
-SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c ft_strlen.c ft_putnbr_u.c ft_count_nb_len.c ft_putptr_base.c
+SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c ft_strlen.c ft_count_nb_len.c ft_putptr_base.c
 
 OBJS = $(SRC:.c=.o)
 
