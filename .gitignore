@@ -6,3 +6,4 @@ ft_printf_tester
 a.out.dSYM
 main.c
 debug.c
+readme.md

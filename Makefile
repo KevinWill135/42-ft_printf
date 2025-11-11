@@ -16,7 +16,7 @@ $(NAME): $(OBJS)
 	@echo "Pronto, pode usar ;)"
 
 %.o: %.c
-	@echo "Compilado HAHAHAH"
+	@echo "Compilando..."
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:

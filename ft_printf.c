@@ -6,11 +6,11 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/11/10 23:20:07 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/11/11 18:54:45 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
 
 static int	ft_catptr(unsigned long long ptr)
 {
@@ -18,7 +18,7 @@ static int	ft_catptr(unsigned long long ptr)
 
 	count = 0;
 	if (!ptr)
-		return (count += ft_putstr("0x0"));
+		return (count += ft_putstr("(nil)"));
 	count += ft_putstr("0x");
 	count += ft_putptr_base(ptr);
 	return (count);
@@ -60,6 +60,8 @@ int	ft_printf(const char *str, ...)
 	va_start(arg, str);
 	i = 0;
 	count = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
