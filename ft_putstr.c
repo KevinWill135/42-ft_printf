@@ -6,16 +6,16 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 19:39:18 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/11/11 18:52:19 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:18:10 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	size_t	i;
-	size_t	tmp;
+	int	i;
+	int	tmp;
 
 	if (!str)
 		return (ft_putstr("(null)"));

@@ -6,7 +6,7 @@
 /*   By: kde-paul <kde-paul@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:07:26 by kde-paul          #+#    #+#             */
-/*   Updated: 2025/11/11 18:54:45 by kde-paul         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:17:51 by kde-paul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	ft_printf(const char *str, ...)
 {
 	int		i;
 	int		count;
-	int		neg_check;
 	va_list	arg;
 
 	va_start(arg, str);
@@ -65,12 +64,7 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-		{
-			neg_check = ft_cattype(&arg, str[++i]);
-			if (neg_check < 0)
-				return (-1);
-			count += neg_check;
-		}
+			count += ft_cattype(&arg, str[++i]);
 		else
 			count += ft_putchar(str[i]);
 		i++;
