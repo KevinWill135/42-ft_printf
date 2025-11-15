@@ -13,10 +13,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rcs $@ $(OBJS)
 	@ranlib $(NAME)
-	@echo "Pronto, pode usar ;)"
+	@echo "Done, now u can use me LoL"
 
 %.o: %.c
-	@echo "Compilando..."
+	@echo "Compiling..."
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
